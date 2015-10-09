@@ -8,7 +8,6 @@ AShadowsMenuPlayerController::AShadowsMenuPlayerController(const FObjectInitiali
 	Super(ObjectInitializer)
 {
 	bShowMouseCursor = true;
-	
 }
 
 void AShadowsMenuPlayerController::BeginPlay()

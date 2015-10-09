@@ -47,6 +47,9 @@ void AShadowsGameMode::BeginPlay()
 			if (StartingPlayerPawns->IsValidIndex(PlayerIndex))
 			{
 				ShadowsPlayerController->Possess((*StartingPlayerPawns)[PlayerIndex]);
+				// Ignore look and move input so player can select their pawn
+				ShadowsPlayerController->SetIgnoreLookInput(true);
+				ShadowsPlayerController->SetIgnoreMoveInput(true);
 			}
 			else
 			{

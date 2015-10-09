@@ -13,16 +13,6 @@ Super(ObjectInitializer)
 void AShadowsPlayerController::BeginPlay()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Shadows Player Controller made."));
-
-	if (HUDWidgetClass != nullptr)
-	{
-		HUDWidget = CreateWidget<UUserWidget>(this, HUDWidgetClass);
-		if (HUDWidget != nullptr)
-		{
-			HUDWidget->AddToViewport();
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("HUDWidget added to viewport."));
-		}
-	}
 }
 
 void AShadowsPlayerController::SetupInputComponent()
@@ -38,7 +28,6 @@ void AShadowsPlayerController::MovePawnToLocation()
 	FHitResult HitResult;
 	GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, false, HitResult);
 	MoveToLocation(HitResult);
-//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("MovePawnToLocation()"));
 }
 
 void AShadowsPlayerController::ContextTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
@@ -57,7 +46,6 @@ void AShadowsPlayerController::MoveToLocation(FHitResult HitResult)
 		if (NavSys)
 		{
 			NavSys->SimpleMoveToLocation(this, HitResult.ImpactPoint);
-//			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("SimpleMoveToLocation called"));
 		}
 	}
 }

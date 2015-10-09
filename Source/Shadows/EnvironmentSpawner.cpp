@@ -13,6 +13,7 @@ TSharedPtr<TArray<APawn*>> AEnvironmentSpawner::SpawnEnvironment(const UEnvironm
 		FVector Location = FVector(0, 0, 0);
 		FRotator Rotation = FRotator(0, 0, 0);
 		// Spawn a test wall actor to get its dimensions, then use it to determine the scale
+		// NOTE: There may be a better way to get a wall's dimensions.
 		AActor* TestWallActor = World->SpawnActor(EnvironmentActorsClasses[static_cast<uint8>(EEnvironmentActorType::Wall)],
 			&Location,
 			&Rotation);
